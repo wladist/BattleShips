@@ -63,6 +63,28 @@ var controller = {
     processGuess: function(guess) {
 
     }
+
+    function parseGuess(guess) {
+        var alphabet = ["A","B","C","D","E","F","G"];
+
+        if (guess === null || guess.lenght !== 2) {
+            alert ("Oops, please enter a letter and a namber on the board.");
+        }
+        else {
+            firstChar = guess.charAt(0);
+            var row = alphabet.indexOf(firstChar);
+            var colum = guess.charAt(1);
+            
+            if (isNaN(row) || isNaN(colum)) {
+                alert("Oops, that's off the board!");
+            } else if (row < 0 || row >= model.boardSize || colum < 0 || colum >= model.boardSize) {
+                alert("Oops, that's off the board!");
+            } else {
+                return row + colum;
+            }
+        }
+        return null;
+    }
 };
  
 
